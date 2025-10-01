@@ -1,0 +1,6 @@
+# Forge configuration sample
+model_path = "models/Qwen3-0.6B-Q3_K_L.gguf"
+device = "cpu"
+chunk_tokens = 768
+chunk_overlap = 128
+# tokenizer_json = "models/tokenizer.json"

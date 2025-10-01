@@ -1,0 +1,36 @@
+[package]
+name = "forge"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+thiserror = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clap = { version = "4", features = ["derive"] }
+indicatif = "0.17"
+colored = "2"
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+petgraph = "0.6"
+walkdir = "2"
+reqwest = { version = "0.12", features = ["rustls-tls"] }
+toml = "0.8"
+# Optional features for future integrations
+lopdf = { version = "0.32", optional = true }
+pulldown-cmark = { version = "0.9", optional = true }
+scraper = { version = "0.19", optional = true }
+qdrant-client = { version = "1", optional = true }
+# tokenizers and candle are heavy; keep optional for now
+tokenizers = { version = "0.15", optional = true }
+# Candle ecosystem (optional)
+candle-core = { version = "0.5", optional = true }
+candle-nn = { version = "0.5", optional = true }
+candle-transformers = { version = "0.5", optional = true }
+[features]
+default = []
+pdf = ["lopdf"]
+markdown = ["pulldown-cmark"]
+html = ["scraper"]
+vector-qdrant = ["qdrant-client"]
+llm = ["candle-core", "candle-nn", "candle-transformers", "tokenizers"]
