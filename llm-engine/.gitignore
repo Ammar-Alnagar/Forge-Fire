@@ -1,0 +1,10 @@
+# Build artifacts
+build/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Other
+*.swp
+*~
